@@ -1,0 +1,59 @@
+/* ---------------------------------------------------- */
+/* xpWidgets (xpTable) Stylesheet                       */
+/*                                                      */
+/* Copyright ©2002-2003 Stedy Software and Systems      */
+/* Please see http://www.stedy.com for terms of use.    */
+/* ---------------------------------------------------- */
+
+
+/* ---------------------------------------------------- */
+/* MDI application styles                               */
+/* ---------------------------------------------------- */
+body
+{
+	background-color: buttonface;
+	scroll: no;
+	margin: 0px;
+	border: none;
+	overflow: hidden;
+}
+
+
+/* ---------------------------------------------------- */
+/* xpTable                                              */
+/* ---------------------------------------------------- */
+.xpTable
+{
+	behavior: url(xpTable.htc);
+	sortNoneImageUrl: images/sortBlank.gif;
+	sortUpImageUrl: images/sortUp.gif;
+	sortDownImageUrl: images/sortDown.gif;
+	posUpImageUrl: images/upArrow.gif;
+	posDownImageUrl: images/downArrow.gif;
+	position: relative;
+    margin: 0px;
+    width: 100%;
+ 	font: menu;
+	highlightBackgroundColor: #C1D2EE;
+	highlightBorderColor: #316AC5;
+	color: windowtext;
+    cursor: default;
+}
+.xpTable THEAD TD
+{
+	border-left: 1px solid buttonhighlight;
+	border-top: 1px solid buttonhighlight;
+	border-bottom: 1px solid buttonshadow;
+	border-right: 1px solid buttonshadow;
+	font: menu;
+	color: menutext;
+	background-color: buttonface;
+    cursor: hand;
+    padding-top: 0px;
+    padding-bottom: 1px;
+}
+.xpTable TBODY TR
+{
+	color: windowtext;
+	background: window;
+}

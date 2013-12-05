@@ -1,0 +1,9 @@
+.skin0 {   
+    BORDER-RIGHT: black 2px solid; BORDER-TOP: black 2px solid; VISIBILITY: hidden; BORDER-LEFT: black 2px solid; WIDTH: 100px; CURSOR: default; LINE-HEIGHT: 20px; PADDING-TOP: 0px; BORDER-BOTTOM: black 1px solid; FONT-FAMILY: "宋体"; POSITION: absolute; BACKGROUND-COLOR: menu; TEXT-ALIGN: left   
+}   
+.skin1 {   
+    BORDER-RIGHT: buttonhighlight 2px outset; BORDER-TOP: buttonhighlight 2px outset; FONT-SIZE: 10pt; VISIBILITY: hidden; BORDER-LEFT: buttonhighlight 2px outset; WIDTH: 100px; CURSOR: default; PADDING-TOP: 4px; BORDER-BOTTOM: buttonhighlight 2px outset; FONT-FAMILY: "宋体"; POSITION: absolute; BACKGROUND-COLOR: menu; TEXT-ALIGN: left   
+}   
+.menuitems {   
+    PADDING-RIGHT: 1px; PADDING-LEFT: 10px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px   
+} 

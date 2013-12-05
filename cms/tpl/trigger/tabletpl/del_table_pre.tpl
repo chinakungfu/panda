@@ -1,0 +1,1 @@
+<pp:var name="result" value="@delAppTable($nodeId,$contentModel,$appTableKeyName,$appTableKeyValue)"/>

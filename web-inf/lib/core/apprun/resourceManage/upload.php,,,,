@@ -1,0 +1,136 @@
+<?php
+import('core.tpl.TplTemplate');
+import('core.apprun.member.Session');
+import('core.apprun.resourceManage.ascll');
+import('core.apprun.resourceManage.dirOperation');
+function getResourceUpLoadPath($serverName)
+{
+	try {
+		$resourceArray = $GLOBALS['currentApp']['resourceconfig'];
+
+		foreach($resourceArray as $key => $val)
+		{
+			if($key==$serverName)
+			{
+				//$arrayLocate['locate'] = $val['locate'];
+				//$arrayLocate['locateurl'] = $val['locateurl'];
+				return $val['locate'];
+			}
+		}
+	}catch (Exception $e){
+		throw $e;
+	}
+}
+/**
+ * 
+ * 上传资源到本地机上
+ * $uploadFileo为上传的源文件
+ * $newFolder用户是否要新建文件夹
+ * $serverName为存放资源的服务器
+ * */
+function upload($upLoadFile,$newFolder,$serverName)
+{
+	try {
+		@header("Content-Type:text/html;charset=utf-8");
+		$TimeLimit=60; /*设置超时限制时间 缺省时间为30秒 设置为0时为不限时 */
+		set_time_limit($TimeLimit);
+
+		
+		if($upLoadFile)
+		{
+			foreach ($upLoadFile as $k=>$v)
+			{
+				//$arrayLocate = getResourceUpLoadPath($serverName);
+				$upLoadPath = getResourceUpLoadPath($serverName);
+				//$upLoadPath = $GLOBALS['currentApp']['apppath'].'/'.$arrayLocate['locate'].'/'.readSession()."/";//以会员的账户创建一个文件夹
+				if(strpos("infomation",$newFolder))
+				{
+					$relPath = $upLoadPath."/admin/";
+					$upLoadPath = $GLOBALS['currentApp']['apppath'].'/'.$upLoadPath.'/admin/';//以会员的账户创建一个文件夹
+				}else 
+				{
+					$relPath = $upLoadPath.'/'.readSession()."/";
+					$upLoadPath = $GLOBALS['currentApp']['apppath'].'/'.$upLoadPath.'/'.readSession()."/";//以会员的账户创建一个文件夹
+				}
+				//$relPath = $arrayLocate['locateurl'].readSession()."/";//服务器上的相对路径
+				if($newFolder)//会员新建的文件夹
+				{
+					$upLoadPath .= $newFolder."/";
+					$relPath .=$newFolder."/";//服务器上的相对路径
+				}
+				//$dirClass = new TplTemplate();
+				$dirClass = new Html();
+				//文件夹转码
+				$upLoadPath = iconv('utf-8','gb2312',$upLoadPath);
+				$relPath = iconv('utf-8','gb2312',$relPath);
+				//$dirClass->makeDir($upLoadPath);//创建会员要上传资源的文件夹
+				$dirClass->createdir($upLoadPath);
+				$ascllClass = new ascii();
+				$fileName=$upLoadPath.$v['name']; //上传文件名
+				$relPath = $relPath.$v['name'];
+				$fileName = iconv('utf-8','gb2312',$fileName);
+				if(!file_exists($fileName))
+				{
+					if(copy($v['tmp_name'],$fileName))
+					{
+						//$path['relPath'] = $relPath;
+						//$path['relPath'] = $relPath;
+						return $relPath;
+					}
+					else
+					{
+						return false;
+					}
+					//unlink($fileName);
+				}
+				else
+				{
+					return false;
+				}
+			}
+		}
+
+		else
+		{
+			return false;
+		}
+	}catch (Exception $e){
+		throw $e;
+	}
+}
+/**
+ * 
+ * 上传资源到FTP上
+ * $ftpServer
+ * $ftpUser
+ * $ftpPass
+ * $fileName
+ * */
+
+function ftpUpload($ftpServer,$ftpUser,$ftpPass,$fileName)
+{
+	try {
+		$connId = ftp_connect($ftpServer) or die("Couldn't connect to $ftpServer");// 连接FTP服务器
+		$loginResult = ftp_login($connId, $ftpUser, $ftpPass);
+		if ((!$connId) || (!$loginResult)) {
+			$destinationFile = getResourceUpLoadPath($serverName);
+			print $destinationFile;exit;
+			$destinationFile = $uploadPath.readSession()."/";//以会员的账户创建一个文件夹
+			if($newFolder)//会员新建的文件夹
+			{
+				$destinationFile .= $newFolder."/";
+			}
+			$dirClass = new TplTemplate();
+			$dirClass->makeDir($uploadPath);//创建会员要上传资源的文件夹
+			$upload = ftp_put($connId, $destinationFile, $fileName, FTP_BINARY) or die("Couldn't connect to $ftp_server");
+			ftp_quit($connId);
+			ftp_close($connId);
+			return $destinationFile;
+		}else {
+			return false;
+		}
+	}catch (Exception $e){
+		throw $e;
+	}
+}
+?>

@@ -1,0 +1,51 @@
+<?php
+$app['resource']['apppath'] = str_replace('\\','/',realpath(dirname(__FILE__)));
+$tempAppDir = substr($app['resource']['apppath'],0,strripos($app['resource']['apppath'],'/'));
+$app['resource']['corepath'] =$tempAppDir.'/web-inf/lib';
+$app['resource']['tpl_source_path']=$app['resource']['apppath'].'/tpl/';
+$app['resource']['tpl_complie_path']=$app['resource']['apppath'].'/compile/';
+$app['resource']['tpl_cache_path']=$app['resource']['apppath'].'/cache/';
+$app['resource']['tpl_request_cache']='';
+$app['resource']['tpl_compilefile_prefix']='tpl_';
+$app['resource']['tpl_compile_filter']='';
+$app['resource']['tpl_language']='UTF-8';
+$app['resource']['varprefix']='_$$';
+$app['resource']['cache_timeout']='300';
+$app['resource']['cache_path']=$app['resource']['apppath'].'/cache/';
+$app['resource']['openid_tmp_path']=$app['resource']['apppath'].'';
+$app['resource']['openid_required_fields']='';
+$app['resource']['openid_options_fields']='';
+$app['resource']['E_Type']='';
+$app['resource']['E_localpath']='d:\cmsroot\resource';
+$app['resource']['E_URL']='http://localhost/resource';
+$app['resource']['Is_createdatabase']='';
+$app['resource']['multiTpl']='';$app['resource']['resourcetype']='图片,文件,音乐,电影,其它|image,file,music,movie,else';$app['resource']['resourceOfApp']='会员,会员中心,黄页,其它|member,memberCenter,yellowPages,else';$app['resource']['resourceconfig']=array('member'=>array('servername'=>'一号','servermode'=>'local','serverftp'=>'','serverftpname'=>'','serverftppass'=>'','locate'=>'upfile','locateurl'=>'http://www.lonmo.com/bjyp/resourceManage/upfile/'),'source'=>array('servername'=>'二号','servermode'=>'ftp','serverftp'=>'lonmo.com','serverftpname'=>'user','serverftppass'=>'pass','locate'=>'/upfile/','locateurl'=>'http://www.lonmo.com/bjyp/resourceManage/upfile/'));
+$attach['resource']['type'] = '';
+$attach['resource']['path'] = 'd:\cmsroot\resource';
+$attach['resource']['url'] = 'http://localhost/resource';
+$attach['cms']['type'] = '';
+$attach['cms']['path'] = 'D:\xampp\htdocs\info\cms';
+$attach['cms']['url'] = 'http://localhost/info/cms';
+$attach['comment']['type'] = 'local';
+$attach['comment']['path'] = 'd:/xampp/htdocs/commoncms/comment';
+$attach['comment']['url'] = 'http://localhost/commoncms/comment';
+$attach['infomation']['type'] = 'local';
+$attach['infomation']['path'] = 'd:/xampp/htdocs/commoncms/infomation';
+$attach['infomation']['url'] = 'http://localhost/commoncms/infomation';
+$attach['membercenter']['type'] = '';
+$attach['membercenter']['path'] = '';
+$attach['membercenter']['url'] = '';
+$attach['log']['type'] = 'local';
+$attach['log']['path'] = 'd:/xampp/htdocs/commoncms/logManage';
+$attach['log']['url'] = 'http://localhost/commoncms/logManage';
+$attach['web-inf']['type'] = '';
+$attach['web-inf']['path'] = '';
+$attach['web-inf']['url'] = '';
+$attach['member']['type'] = 'local';
+$attach['member']['path'] = 'D:\xampp\htdocs\info\member';
+$attach['member']['url'] = 'http://localhost/info/member';
+include_once($app['resource']['corepath'] . '/core/apprun/cmsware/CmswareInit.php');
+$currentAppName='resource';
+$currentApp=&$GLOBALS['app']['resource']
+
+?>

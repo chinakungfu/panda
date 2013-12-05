@@ -1,0 +1,178 @@
+.font01 {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+.font02 {
+	FONT-SIZE: 12px;
+	COLOR: #003399;
+	TEXT-DECORATION: none;
+	background-attachment: fixed;
+}
+.font03{
+	FONT-SIZE: 20px;
+	COLOR: #003399;
+	TEXT-DECORATION: none;
+	background-attachment: fixed;
+}
+.font04{
+	FONT-SIZE: 20px;
+	COLOR: #003399;
+	TEXT-DECORATION: blink;
+	background-attachment: fixed;
+	font-style: normal;
+	font-weight: normal;
+	font-family: "����";
+	background-position: center;
+}
+.table {
+	background-color: #808080;
+	border:0;
+	align:center;
+	font-size: 12px;
+	font-family: "����";
+	text-align: center;
+}
+.WhiteFont {
+	color: #FFFFFF;
+	font-size:13px;
+	font-family: "����";
+}
+.WhiteTD {
+	background-color: #FFFFFF;
+}
+.hg {     /*�ı�֮����о�*/
+	font-family: "����";
+	line-height: 20px;
+	letter-spacing: 1px;
+	text-indent: 24px;
+	padding: 3px;
+}
+.header {        /*��һ�б������ʽ*/
+	background-image: url(../images/bar6.gif);
+	color: #FFFFFF;
+	font-weight: normal;
+	background-repeat: repeat-x;
+	background-position: center center;
+	font-size: 12px;
+        height:23px;
+	font-family: "����";
+	}
+.button {
+	background-image: url(../images/buttonback.gif);
+	width: 60px;
+	height:23px;
+	font-size: 12px;
+	padding: 0px;
+	color: #003399;
+	font-family: "����";
+	border: 0px ridge #808080;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.calendarbutton {
+	background-image: url(../images/date.gif);
+	width: 30px;
+	height:23px;
+	font-size: 12px;
+	padding: 0px;
+	color: #003399;
+	font-family: "����";
+	border: 0px;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+/* Sortable tables */
+table.sortable a.sortheader {
+	background-image: url(../images/bar6.gif);
+	color: #FFFFFF;
+	font-weight: normal;
+	background-repeat: repeat-x;
+  background-position: center center;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+	font-size: 12px;
+        height:23px;
+	font-family: "����";
+}
+table.sortable span.sortarrow {
+    color:red;
+    text-decoration: none;
+}
+.upbutton {
+	background-image: url(../images/guizhou_longbutton.gif);
+	width: 70px;
+	height:24px;
+	font-size: 12px;
+	padding: 0px;
+	color: #003399;
+	font-family: "����";
+        border: 0px ridge #808080;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+ /*ͼƬ������ť��ʽ*/
+.ta1 td{color:#0D4EB5;line-height:17px;}
+.ta1 a:link {color:#0D4EB5;line-height:17px;text-decoration: none}
+.ta1 a:visited {color:#0D4EB5;line-height:17px;text-decoration: none}
+.ta1 a:hover {color:#0D4EB5;line-height:17px;text-decoration: underline}
+
+ /*����l����ʽ*/
+.ta2 td{color:#666666;line-height:17px;font-size:12px;}
+.ta2 {color:#666666;line-height:17px;font-size:12px;}
+.ta2 a:link {color:#666666;line-height:17px; font-size:12px; text-decoration: none}
+.ta2 a:visited {color:#666666;line-height:17px; font-size:12px;text-decoration: none}
+.ta2 a:hover {color:#666666;line-height:17px;font-size:12px;text-decoration: underline}
+
+.log{/*�����ı߿�*/
+	font-size:12px;
+	background-color:#f9fcff;
+	border: 1px solid #56a0d4;
+}
+.img {              /*ͼƬt����ʾ�������ʽ*/
+	cursor: pointer;
+}
+.BlueTD {
+	background-attachment: fixed;
+	background-image:  url(../images/bar6.gif);
+	background-repeat: repeat-x;
+	background-position: center center;
+	background-color:#EEEEE0;
+}
+.title1{
+   text-align:left;
+   height:23px;
+   background-color:#E9F5FF;
+}
+.body{
+	font-family:"����";
+	font-size:9pt;
+	margin-left:0px;
+	margin-top:0px;
+	color:#000000;
+	background-color:#f7f3f7;
+	background-repeat:no-repeat;
+	background-position:right bottom;
+}
+.font04Copy {
+	FONT-SIZE: 20px;
+	COLOR: #003399;
+	TEXT-DECORATION: none;
+	background-attachment: fixed;
+	font-style: normal;
+	font-weight: bolder;
+    font-family: "����";
+}
+.maintabletd {
+	font-family: "����";
+	font-size: 12px;
+	font-style: normal;
+	line-height: 23px;
+	color:#003399;
+			
+	background-color: #b5c7ef;
+	text-align: center;
+	text-decoration: none;
+}

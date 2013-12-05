@@ -1,0 +1,57 @@
+<?php
+require_once('publish_applparam.php');
+require_once('publish_mvcconfig.php');
+require_once('publish_appAjax.php');
+$app_dir = str_replace('\\','/',realpath(dirname(__FILE__)));
+$tempAppDir = substr($app_dir,0,strripos($app_dir,'/'));
+$core_dir=$tempAppDir.'/web-inf/lib';
+if (!defined('corepath'))
+{
+	define('corepath',$core_dir);
+}
+if (!defined('apppath'))
+{
+	define('apppath',$app_dir);
+}
+require_once(corepath.'/coreconfig/public_gloablparam.php');
+require_once(corepath.'/coreconfig/public_func.php');
+require_once(corepath.'/coreconfig/public_htmltag.php');
+require_once(corepath.'/coreconfig/public_logictag.php');
+require_once(corepath.'/coreconfig/public_dbconfig.php');
+require_once(corepath.'/coreconfig/public_tableconfig.php');
+require_once(corepath.'/coreconfig/public_appconfig.php');
+//������ĺ���
+require_once(corepath.'/core/incfunc.php');
+//include(apppath.'config.php');
+
+require_once(corepath.'/core/param/param.php');
+import('core.util.RunFunc');
+
+
+//$dffefe=geturl('fC91cGZpbGVzL3Rhb2Jhby8yLzIwMTItMDUtMTkvfDE4YjM2OWZjMmZmMmY3OWQ5MmVlNmEwNWQwMTVkYzJkLmpwZ3w=');
+
+
+$dffefe=base64_decode('UWADaVMlATsNZFU7Bz0AfQ9lUW1ScVU%2BUiJVPw1yU21bbgl0VT9WalAyBDlTOAhtUDgDMlJ3AnQ%3D');
+
+
+//array_walk($dffefe, "out");
+
+print_r($dffefe);
+
+echo "<br><br>";
+
+echo runFunc('encrypt_url',array('action=website&method=logout'));
+
+echo "<br><br>"; 
+
+    date_default_timezone_set("prc");  
+      
+    $stringtime = date('Y-m-d H:i:s',time());  
+      
+    echo $stringtime."<br/>";  
+      
+    echo strtotime($stringtime)."<br/>";  
+      
+    echo date("Y/m/d G:i:s A",strtotime($stringtime));  
+ 
+?>

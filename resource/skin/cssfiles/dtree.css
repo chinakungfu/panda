@@ -1,0 +1,94 @@
+/****************************************/
+/*贵州电信集中实时计费帐务系统*/
+/*Use for login.htm*/
+/*Design By Linkage*/
+/****************************************/
+
+/****************************************/
+/*2004-06-03*/
+/****************************************/
+
+/*HTML tag styles*/
+/****************************************/
+
+body{
+    font-family:"宋体";
+    font-size:9pt;
+	margin:0;
+	color:#000000;
+	background-color:#D7E1F2;
+}
+
+A
+{
+	font-size:9pt;
+	color: #000000;
+	text-decoration: none;
+}
+
+A:active
+{
+	font-size:9pt;
+	color: #000000;
+	text-decoration: none;
+}
+
+
+A:hover
+{
+	font-size:9pt;
+	color: #FF6A01;
+	text-decoration: underline;
+	sursor:hand;
+	
+}
+
+A:visited{
+    color: #062A72;
+	text-decoration:none;
+	sursor:hand;
+
+}
+
+
+table{
+    font-family:"宋体";
+    font-size:9pt;
+	color:#000000;
+
+}
+
+..dtree {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #666;
+	white-space: nowrap;
+}
+..dtree img {
+	border: 0px;
+	vertical-align: middle;
+}
+..dtree a {
+	color: #333;
+	text-decoration: none;
+}
+..dtree a.node, .dtree a.nodeSel {
+	white-space: nowrap;
+	padding: 1px 2px 1px 2px;
+}
+..dtree a.node:hover, .dtree a.nodeSel:hover {
+	color: #333;
+	text-decoration: underline;
+}
+..dtree a.nodeSel {
+	background-color: #c0d2ec;
+}
+..dTreeNode{
+ height:21px;
+ background-image:  url(../images/guizhou_leftmenubg.gif);
+ background-repeat: repeat-175;
+ background-position: bottom
+}
+..dtree .clip {
+	overflow: hidden;
+}

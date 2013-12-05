@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled</title>
+</head>
+<body>
+<p>单条记录插入</p>
+<form action="app.php?action=add&con=appApiTest&nodeId=LYGLQ6rM" method="post" enctype="multipart/form-data">
+<table width="943" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="105" height="32">姓名：</td>
+    <td width="838"><input type="text" name="lyName" /></td>
+  </tr>
+  <tr>
+    <td height="32">电话：</td>
+    <td><input type="text" name="telephoneNum"/></td>
+  </tr>
+  <tr>
+    <td>留言：</td>
+    <td><textarea cols="56" rows="12" name="content" ></textarea></td>
+  </tr>
+  <tr>
+  	<td height="32">&nbsp;</td>
+    <td><input type="submit" value="提交留言" /></td>
+  </tr>
+</table>
+
+</form>
+
+<p>多条记录插入</p>
+<form action="app.php?action=add&con=appApiTest&nodeId=LYGLQ6rM&multi=1" method="post" enctype="multipart/form-data">
+<table width="943" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="105" height="32">姓名：</td>
+    <td width="838"><input type="text" name="lyName[]" /></td>
+  </tr>
+  <tr>
+    <td height="32">电话：</td>
+    <td><input type="text" name="telephoneNum[]"/></td>
+  </tr>
+  <tr>
+    <td>留言：</td>
+    <td><textarea cols="56" rows="12" name="content[]" ></textarea></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="943" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="105" height="32">姓名：</td>
+    <td width="838"><input type="text" name="lyName[]" /></td>
+  </tr>
+  <tr>
+    <td height="32">电话：</td>
+    <td><input type="text" name="telephoneNum[]"/></td>
+  </tr>
+  <tr>
+    <td>留言：</td>
+    <td><textarea cols="56" rows="12" name="content[]" ></textarea></td>
+  </tr>
+  <tr>
+  	<td height="32">&nbsp;</td>
+    <td><input type="submit" value="提交留言" /></td>
+  </tr>
+</table>
+
+</form>
+</body>
+</html>

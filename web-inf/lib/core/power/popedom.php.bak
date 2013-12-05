@@ -1,0 +1,81 @@
+<?php
+/**
+ * 权限验证函数
+ * 根据传入的用户id,应用id,动作id,方法id判断用户的权限状态,
+ * 如果传入的某个变量缺少，默认将采用当前状态下的参数值作为验证参数
+ * 仅提供返回权限状态数字值
+ */
+
+import('core.datasource.DataAccess');
+import('core.datasource.TStaticQuery');
+import('core.apprun.member.Session');
+function memberAuthArray($uNo,$appId,$moduleId,$actionId)
+{
+	try
+	{ 
+		if($uNo=='')
+		{
+			$uNo = readSession();
+		}
+		if($uNo=='')
+		{
+			$uNo = 'tourist';
+		}
+		$sql = "select e.operationNo,e.distinctionNo from ".
+		"{$GLOBALS['table']['member']['staff']} a,".
+		"{$GLOBALS['table']['member']['staff_groups']} b,".
+		"{$GLOBALS['table']['member']['group_roles']} c,".
+		"{$GLOBALS['table']['member']['role_operations']} d,".
+		"{$GLOBALS['table']['member']['operations']} e".
+		" where a.staffId=b.staffId and b.groupId=c.groupId ".
+		" and c.roleId=d.roleId and d.operationId=e.operationId ".
+		" and a.staffNo='".$uNo."'".
+		" and e.appId='".$appId."'".
+		" and e.moduleId='".$moduleId."'".
+		" and e.actionId='".$actionId."'";
+		$result = TStaticQuery::queryList($GLOBALS['currentApp']['dbaccess'],$sql,$params);
+		return $result;			
+	}catch (Exception $e){
+		throw $e;
+	}
+}
+function isMemberAuth($uNo,$appId,$moduleId,$actionId,$distinctionNo)
+{
+	try {
+		if($uNo=='')
+		{
+			$uNo = readSession();
+		}
+		if($uNo=='')
+		{
+			$uNo = 'tourist';
+		}
+		if($appId=='')
+		{
+			$appId = $GLOBALS['currentAppName'];
+		}
+		$sql = "select count(*) as rowscount from ".
+		"{$GLOBALS['table']['member']['staff']} a,".
+		"{$GLOBALS['table']['member']['staff_groups']} b,".
+		"{$GLOBALS['table']['member']['group_roles']} c,".
+		"{$GLOBALS['table']['member']['role_operations']} d,".
+		"{$GLOBALS['table']['member']['operations']} e".
+		" where a.staffId=b.staffId and b.groupId=c.groupId ".
+		" and c.roleId=d.roleId and d.operationId=e.operationId ".
+		" and a.staffNo='".$uNo."'".
+		" and e.appId='".$appId."'".
+		" and e.moduleId='".$moduleId."'".
+		" and e.actionId='".$actionId."'".
+		" and e.distinctionNo='".$distinctionNo."'";
+		$result = TStaticQuery::queryList($GLOBALS['currentApp']['dbaccess'],$sql,$params);
+		if($result[0]['rowscount']>0)
+		{
+			return true;
+		}else {
+			return false;
+		}
+	}catch (Exception $e){
+		throw $e;
+	}
+}
+?>

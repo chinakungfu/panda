@@ -1,0 +1,53 @@
+@charset "utf-8";
+body {
+	font-family:/*"微软雅黑",*/Arial,Tahoma,"宋体";
+	/*background:url(../images/x_mas.gif) repeat;*/
+}
+a{color:#FFFFFF;text-decoration:none; }
+.bj {
+	width:1024px;
+	margin:auto;
+}
+.m1 {
+	margin-top:160px;
+	margin-left:240px;
+	width:205px;
+}
+.m2 {
+	float:left;
+	margin-top:80px;
+	margin-left:165px;
+	width:205px;
+}
+.mlogo {
+	float:left;
+	margin-top:45px;
+	margin-left:95px;
+}
+.m3 {
+	margin-left:275px;
+	width:205px;
+}
+.m4 {
+	margin-top:55px;
+	margin-left:475px;
+	width:205px;
+	margin-bottom:58px;
+}
+.m5 {
+	margin-top:58px;
+	margin:auto;
+	width:153px;
+	height:22px;
+}
+.m6 {
+	margin:auto;
+	color:#333;
+	line-height:10px;
+	text-align:center;
+	font-size:10px;
+	margin-top:5px;
+}
+.m6 a{
+	color:#333;
+}

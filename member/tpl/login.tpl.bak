@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户登录</title>
+<script type="text/javascript" src="jsfiles/check.js"></script>
+<style type="text/css">
+#login {
+	position: absolute;
+	left:32%;
+	top:40%;
+	margin-left:-150px;
+	margin-top:-32px;
+	width:800px;
+}   
+  
+  
+/*左边部分*/
+#login_left {
+	width:350px;
+	float:left;
+}
+
+#login_logo_intro{
+	clear:both;
+	color:#666;
+	font-family:Verdana;
+	font-size:12px;
+	font-weight:bold;
+	margin-top:5px;
+}
+
+#login_logo_name{
+	clear:both;
+	font-size:14px;
+	font-weight:bold;
+	color:#10559e;
+	margin-top:5px;
+}
+
+#login_creat{
+	clear:both;
+	margin-top:10px;
+}
+#login_copyright{
+	clear:both;
+	color:#666;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:9px;
+	margin-top:5px;
+}
+#back{
+	clear:both;
+	color:#666;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:10px;
+	margin-top:5px;
+	text-decoration:underline;
+	font-weight:bold;
+	
+}
+/*中间部分*/
+#login_center {
+	background:url(images/login/login_line.gif) no-repeat;
+	height:163px;
+	width:1px;
+	float:left;
+	margin:0px 25px 0px 10px;
+}
+
+#login_right {
+	float:left;
+	width:290px;
+}
+#login_action_left{
+	clear:both;
+	margin-top:10px;
+	background:url(images/login/login_action_left.gif) no-repeat;
+	width:53px;
+	height:25px;
+	float:left;
+	padding:7px 0 0 10px;
+	font-family:Tahoma;
+	color:#666;
+	font-size:12px;
+}
+#login_action_bg{
+	float:left;
+	margin-top:10px;
+	width:210px;
+	height:32px;
+	background:url(images/login/login_action_bg.gif) repeat-x;
+}
+
+#login_action_bg input{
+	border:1px solid #fff;
+	margin-top:6px;
+	width:200px;
+}
+
+#login_action_right{
+	float:left;
+	margin:0px;
+	background:url(images/login/login_action_right.gif) no-repeat;
+	width:10px;
+	height:32px;
+	margin-top:10px;
+}
+
+#login_action_code{
+	float:left;
+	color:#f00;
+	margin:15px 0 0 10px;
+	font-size:14px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+#login_submit{
+	float:left;
+	width:100px;
+	height:100px;
+	margin-top:10px;
+}
+#login_submit_bg{
+	float:left;
+	background:url(images/login/login_bg.gif) no-repeat;
+	width:70px;
+	height:42px;
+}
+#find_password{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	clear:both;
+	padding-top:10px;
+	padding-left:5px;
+}
+a:link {
+	color: #666666;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #666666;
+}
+a:hover {
+	text-decoration: underline;
+	color: #666666;
+}
+a:active {
+	text-decoration: none;
+	color: #666666;
+}
+
+</style>
+
+</head>
+<body>
+<form name="form" action="index.php" method="post" onSubmit="return Validator.Validate(this,1)">
+<input type="hidden" name="action" value="member">
+<input type="hidden" name="method" value="logined">
+<div id="login">
+	
+    <div id="login_left">
+    
+   	  <div id="login_logo"><a href="../yellowpages/index.php"><img src="images/login/login_logo.gif" border="0" /></a></div>
+    		<div id="login_logo_intro"><strong>中国电信黄页本地搜管理平台</strong></div>
+    			<div id="login_logo_name"></div>
+               <div id="login_creat"></div>
+      <div id="login_copyright"></div>
+      <div id="back"></div>          
+  </div>
+  
+  
+		<div id="login_center"></div>
+<center>
+	<div id="login_right">
+    	<div id="login_action_left">用户名：</div>
+        <div id="login_action_bg"><input name="staffNo" type="text" value="[$IN.staffNo]" dataType="Username" msg="ID名不符合规定"/></div>
+        <div id="login_action_right"></div>
+        <div id="login_action_left">密  码：</div>
+        <div id="login_action_bg"><input name="password" type="password" dataType="Require"   msg="密码不符合安全规则"/></div>
+      	<div id="login_action_right"></div>
+      	<div id="login_action_left">验证码：</div>
+        <div id="login_action_bg" style="width:150px;"><input name="code" type="text" dataType="code" msg="验证码不正确" style="width:150px; float:left;"/></div>
+        <div id="login_action_right"><div style="height:auto; width:auto; margin-top:3px; padding-left:18px;"><img src='../web-inf/lib/core/apprun/member/buildCode.php' border=0 align=absbottom alt="验证码由纯数字组成"></div></div>
+       
+        <input type="hidden" name="url" value="[$url]">
+        <div id="find_password"><a href="index.php?[@encrypt_url('action=member&method=findPassword')]"><font style="color:#0767a8; font-size:12px;"><u>忘记密码</u></font></a></div>
+    </div>
+    
+   <div id="login_submit">
+   <input type="image" src="images/login/login_login.gif" />
+          <div id="login_submit_bg">
+   	</div>
+   	</div>
+
+</center>
+</div>
+    </form>
+</body>
+</html>
+
+

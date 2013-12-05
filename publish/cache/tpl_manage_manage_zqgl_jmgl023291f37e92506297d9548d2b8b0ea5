@@ -1,0 +1,394 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>main</title>
+<link rel="stylesheet" type="text/css" media="screen" href="/skin/css/adminstyle.css" />
+<script type="text/javascript" src="/skin/js/jquery.js"></script>
+<script type="text/javascript">
+function searchData(frm){
+	alert(0);
+	var url, query='',field, tmp, o, data={};
+	$(':input', frm).each(function(){
+		o=$(this);
+		if(field=o.data('field')){
+			if(this.value){
+				if(query) query+='&';
+				query+='&'+field+'[v]='+this.value;
+				if(tmp=o.data['action']) query+='&'+field+'[o]='+tmp;
+			}
+		}else if(o.is('[name]') && this.value){
+			if(query) query+='&';
+			query+=o.attr('name')+'='+this.value;
+		}
+	})
+	
+	url=$(frm).attr('action');
+	url+=url.indexOf('?')>0?'&':'?';
+	url+=query;
+	alert(url);
+	location=url;
+	return false;
+}
+</script>
+</head>
+
+<body class="rightbody">
+<div class="mainbox">
+	<div class="yplace">
+    	<div class="cfont">
+<div class="cfont">
+当前位置：<a href="/publish/index.php?LCMSPID=ADEHbVUjVG4Ca1I8BjwKbVA%2BXm4BMFA1BmdTego%2BUGYDJwVkBWgBNgQ%2FAG1XMQBjDm8%3D">首页</a> > 
+居民管理        </div>
+        </div>
+    </div>
+    
+    <div class="block">
+   	  <div class="bcbox">
+   		  <div class="topt"><div class="fontbox">◎ 居民管理列表</div></div>
+          <div class="cbox">
+			<form action="/publish/search.php" method="post" onsubmit="return searchData(this)">
+			<input type="hidden" value="JMGLZT1m" name="nodeId"/>
+			<input type="hidden" value="20" name="pageSize"/>
+			<input type="hidden" name="tpl" value="manage/manage_zqgl_jmgl"/>
+            <table cellpadding="0" cellspacing="0" width="770" align="center" class="searchtablelist">
+            	<tr>
+                  <th>村名称</th>
+                  <td><input type="text" name="villageName" data-field="villageName" data-action="like" value="" class="admininput"/></td>
+                  <th>组名称</th>
+                  <td><input type="text" name="groupName" data-field="groupName" data-action="like" value="" class="admininput"/></td>
+                  <th>档案号</th>
+                  <td><input type="text" name="docNum" data-field="docNum" value="" class="admininput"/></td>
+                </tr>
+                <tr>
+                  <th>户主姓名</th>
+                  <td><input type="text" name="householdName" data-field="householdName" data-action="like" value="" class="admininput"/></td>
+                  <th>姓名</th>
+                  <td><input type="text" name="peopleName" data-field="peopleName" data-action="like" value="" class="admininput"/></td>
+                  <th>性别</th>
+                  <td>
+                  <select name="sex" data-field="sex">
+                  	<option value="">不限</option>
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                  </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>民族</th>
+                  <td><input type="text" name="nation" data-field="nation" value="" data-action="like" class="admininput"/></td>
+                  <th>出生日期</th>
+                  <td><input type="text" name="birthDate" data-field="birthDate" value="" class="admininput"/></td>
+                  <th>婚姻状况</th>
+                  <td><input type="text" name="marry" data-field="marry" value="" class="admininput"/></td>
+                </tr>
+                <tr>
+                  <th>婚姻状况发生日期</th>
+                  <td><input type="text" name="marryDate" data-field="marryDate" value="" class="admininput"/></td>
+                  <th>身份证号</th>
+                  <td><input type="text" name="idNumber" data-field="idNumber" value="" class="admininput"/></td>
+                  <th>联系手机</th>
+                  <td><input type="text" name="mobileNum" data-field="mobileNum" value="" class="admininput"/></td>
+                </tr>
+                
+                <tr><td colspan="6" style="text-align:center;"><input type="submit" value="检索" />&nbsp;&nbsp;<input type="reset" value="重置" /></td></tr>
+            </table>
+            <table cellpadding="0" cellspacing="0" width="770" align="center">
+            	<tr><td height="10"></td></tr>
+            </table>
+            
+            <table cellpadding="0" cellspacing="0" width="770" align="center" class="tablelist">
+                <tr>
+                  <th>村名称</th>
+                  <th>组名称</th>
+                  <th>户主姓名</th>
+                  <th>姓名</th>
+                  <th>性别</th>
+                  <th>民族</th>
+                  <th>出生日期</th>
+                  <th>婚姻状况</th>
+                  <th>户口性质</th>
+                  <th>操作</th>
+                </tr>
+                     <tr>
+                  <td>北街村</td>
+                  <td>一组</td>
+                  <td>陈秀德</td>
+                  <td>陈秀德</td>
+                  <td>男</td>
+                  <td>苗</td>
+                  <td>1956-12-13</td>
+                  <td>初婚</td>
+                  <td>农</td>
+                  <td><a href="/publish/index.php?LCMSPID=BjcHbQVzVmwNZFc5UmhdOgVrX29RYFI3VjdTelltBTNVcVMyUz4BNlFqAWtSOF0wVTYHOldoUj5WJgVvXWpRdgZwB2YFbVZLDWRXalJkXWcFO18nUW9SP1Y2UzlZSQUyVThTEFMcARVRGwFbUgFdZlU3">查看</a></td>
+                </tr>
+                    <tr>
+                  <td>北街村</td>
+                  <td>一组</td>
+                  <td>陈秀德</td>
+                  <td>吴德英</td>
+                  <td>女</td>
+                  <td>苗</td>
+                  <td>1956-10-08</td>
+                  <td>初婚</td>
+                  <td>农</td>
+                  <td><a href="/publish/index.php?LCMSPID=VmdUPgZwUGoGbwZoBz1cOwVrUmJSYwdiVzYHLg46BTMHIwFgUj8CNQ02BG5TOQ1gVDdQbVVqAW0AcAFrDzhWcVYgVDUGblBNBm8GOwcxXGYFOFIqUmwHalc3B20OHgUyB2oBQlIdAhYNRwReUwANNlQ2">查看</a></td>
+                </tr>
+                    <tr>
+                  <td>北街村</td>
+                  <td>一组</td>
+                  <td>陈秀德</td>
+                  <td>陈友明</td>
+                  <td>男</td>
+                  <td>苗</td>
+                  <td>1988-04-20</td>
+                  <td>未婚</td>
+                  <td>农</td>
+                  <td><a href="/publish/index.php?LCMSPID=ATAJYwB2BjwDalc5WmBcOw9hAjJQYVcyAWBReA46UmRUcFc2AWxVYgM4A2laMAFsVTYFOFVqAGwLewFrCj0CJQF3CWgAaAYbA2pXalpsXGYPMwJ6UG5XOgFhUTsOHlJlVDlXFAFOVUEDSQNZWgkBOlU3">查看</a></td>
+                </tr>
+                    <tr>
+                  <td>北街村</td>
+                  <td>一组</td>
+                  <td>陈秀德</td>
+                  <td>陈友生</td>
+                  <td>男</td>
+                  <td>苗</td>
+                  <td>1984-10-01</td>
+                  <td>未婚</td>
+                  <td>农</td>
+                  <td><a href="/publish/index.php?LCMSPID=BjcAalchBjwFbFI8UWtcOwZoXm4BMA1oBmcOJws%2FWG5VcVAxVTgFMgc8UTsAaglkUjFRbFNsUT0Lew9lXGtWcQZwAGFXPwYbBWxSb1FnXGYGPV4mAT8NYAZmDmQLG1hvVThQE1UaBREHTVELAFMJMlIw">查看</a></td>
+                </tr>
+                    <tr>
+                  <td>北街村</td>
+                  <td>一组</td>
+                  <td>陈秀礼</td>
+                  <td>陈秀礼</td>
+                  <td>男</td>
+                  <td>苗</td>
+                  <td>1963-05-13</td>
+                  <td>初婚</td>
+                  <td>农</td>
+                  <td><a href="/publish/index.php?LCMSPID=AzIJYwZwBT9SO1M9VW8BZlc5VGQCMwdiVjcAKQk9BTNbfwBhCWRSZVVuUzlVP1o3AWJTblBvBmoCcgVvCj0CJQN1CWgGbgUYUjtTblVjATtXbVQsAjwHalY2AGoJGQUyWzYAQwlGUkZVH1MJVQZaYQFj">查看</a></td>
+                </tr>
+                    <tr>
+                  <td>北街村</td>
+                  <td>一组</td>
+                  <td>陈秀礼</td>
+                  <td>唐国秀</td>
+                  <td>女</td>
+                  <td>苗</td>
+                  <td>1970-11-20</td>
+                  <td>初婚</td>
+                  <td>农</td>
+                  <td><a href="/publish/index.php?LCMSPID=AzJQOlMlUGoGb1Y4WmABZgRqVGQGN1cyUDEFLA05ADZUcFc2B2pTZAI5AGoAag1gBGdTbgI9Uj5XJ1Q%2BDTpXcAN1UDFTO1BNBm9Wa1psATsEPVQsBjhXOlAwBW8NHQA3VDlXFAdIU0cCSABaAFMNNgRm">查看</a></td>
+                </tr>
+                    <tr>
+                  <td>北街村</td>
+                  <td>一组</td>
+                  <td>陈秀礼</td>
+                  <td>陈燕晶</td>
+                  <td>男</td>
+                  <td>苗</td>
+                  <td>1991-07-05</td>
+                  <td>未婚</td>
+                  <td>农</td>
+                  <td><a href="/publish/index.php?LCMSPID=UWACaFQiVG4BaANtBD4Ibw9hAjIAMQJnA2IGL1puAzUHIwdmCGUFMgc8UDpTOQhlBWZfYlVqAW0BcQZsADdYf1EnAmNUPFRJAWgDPgQyCDIPNwJ6AD4CbwNjBmxaSgM0B2oHRAhHBREHTVAKUwAIMwVn">查看</a></td>
+                </tr>
+                    <tr>
+                  <td>北街村</td>
+                  <td>一组</td>
+                  <td>陈秀礼</td>
+                  <td>陈德华</td>
+                  <td>男</td>
+                  <td>苗</td>
+                  <td>1933-07-01</td>
+                  <td>丧偶</td>
+                  <td>农</td>
+                  <td><a href="/publish/index.php?LCMSPID=AzIEblMlBT9XPlwyBz0IbwFvX29SYwBlVTQPJlxoBTMGIlQ1Uz5abQE6A2kBaw1gDm1Sbwc4UDwKegFrDToFIgN1BGVTOwUYVz5cYQcxCDIBNl8nUmwAbVU1D2VcTAUyBmtUF1McWk4BSwNZAVINNg5s">查看</a></td>
+                </tr>
+                    <tr>
+                  <td>北街村</td>
+                  <td>一组</td>
+                  <td>周仁刚</td>
+                  <td>周仁刚</td>
+                  <td>男</td>
+                  <td>汉</td>
+                  <td>1969-01-17</td>
+                  <td>初婚</td>
+                  <td>农</td>
+                  <td><a href="/publish/index.php?LCMSPID=BjcHbQVzVmwNZFc5UmhdOgVrX29RYFI3VjdTelltBTNVcVMyUz4BNlFqAWtSOF0wVTYHOldoUj5WJgVvXWpRdgZwB2YFbVZLDWRXalJkXWcFM18nUW9SP1Y2UzlZSQUyVThTEFMcARVRGwFbUgFdZlU3">查看</a></td>
+                </tr>
+                    <tr>
+                  <td>北街村</td>
+                  <td>一组</td>
+                  <td>周仁刚</td>
+                  <td>刘朝英</td>
+                  <td>女</td>
+                  <td>苗</td>
+                  <td>1971-08-31</td>
+                  <td>初婚</td>
+                  <td>农</td>
+                  <td><a href="/publish/index.php?LCMSPID=BjcJYwN1ADoMZQFvU2kOaQdpX28FNFA1C2oGLw87V2EGIgdmB2pWYQA7UDpRO1s2UDMEOVZpUT0GdgJoXmlRdgZwCWgDawAdDGUBPFNlDjUHOF8nBTtQPQtrBmwPH1dgBmsHRAdIVkIASlAKUQJbYFAy">查看</a></td>
+                </tr>
+                    <tr>
+                  <td>北街村</td>
+                  <td>一组</td>
+                  <td>周仁刚</td>
+                  <td>周燕</td>
+                  <td>女</td>
+                  <td>苗</td>
+                  <td>1997-01-02</td>
+                  <td>未婚</td>
+                  <td>农</td>
+                  <td><a href="/publish/index.php?LCMSPID=UWADaVMlATsNZFU7Bz0AZw9hUWFSY1UwUjNVfA05U2VbfwloVThWYVBrBG5TOQhlUDMDPlJtAm5VJQVvCT4FIlEnA2JTOwEcDWRVaAcxADsPMVEpUmxVOFIyVT8NHVNkWzYJSlUaVkJQGgReUwAIM1Ay">查看</a></td>
+                </tr>
+                    <tr>
+                  <td>北街村</td>
+                  <td>一组</td>
+                  <td>周仁刚</td>
+                  <td>周丽莎</td>
+                  <td>女</td>
+                  <td>苗</td>
+                  <td>2007-04-04</td>
+                  <td>未婚</td>
+                  <td>农</td>
+                  <td><a href="/publish/index.php?LCMSPID=AzIAalUjU2lXPlM9Bz0AZwVrADBUZQZjBGUELQo%2BVmAGIgloBWhVYgU%2BVT9UPgtmUDNSbwU6VzsGdg9lWW5XcAN1AGFVPVNOVz5TbgcxADsFOAB4VGoGawRkBG4KGlZhBmsJSgVKVUEFT1UPVAcLMFAy">查看</a></td>
+                </tr>
+                    <tr>
+                  <td>北街村</td>
+                  <td>一组</td>
+                  <td>刘朝芳</td>
+                  <td>刘朝富</td>
+                  <td>男</td>
+                  <td>苗</td>
+                  <td>1975-09-09</td>
+                  <td>未婚</td>
+                  <td>农</td>
+                  <td><a href="/publish/index.php?LCMSPID=U2IIYlIkAjgFbFE%2FBz0PaFM9BzdSYwdiAWAPJlltVWNQdFQ1AWwGMVZtVD5RO1wxA2BeY1FuUT0Hd1Q%2BCj1TdFMlCGlSOgIfBWxRbAcxDzRTbwd%2FUmwHagFhD2VZSVViUD1UFwFOBhJWHFQOUQJcZwNh">查看</a></td>
+                </tr>
+                    <tr>
+                  <td>北街村</td>
+                  <td>一组</td>
+                  <td>刘朝芳</td>
+                  <td>刘朝芳</td>
+                  <td>男</td>
+                  <td>苗</td>
+                  <td>1978-10-05</td>
+                  <td>初婚</td>
+                  <td>农</td>
+                  <td><a href="/publish/index.php?LCMSPID=WmsAagN1ATsAaQdpAzkKbQ5gUWECMwFkVjdSewg8AzUBJQhpVThXYAc8B20Aal4zA2AEOQY5UT0LewBqXmkDJFosAGEDawEcAGkHOgM1CjEONVEpAjwBbFY2UjgIGAM0AWwIS1UaV0MHTQddAFNeZQNh">查看</a></td>
+                </tr>
+                    <tr>
+                  <td>北街村</td>
+                  <td>一组</td>
+                  <td>刘朝芳</td>
+                  <td>刘英</td>
+                  <td>女</td>
+                  <td>苗</td>
+                  <td>1985-01-01</td>
+                  <td>初婚</td>
+                  <td>农</td>
+                  <td><a href="/publish/index.php?LCMSPID=VWQHbQVzVG4NZFM9VG5aPQFvVWVQYQdiUDEFLAE1UWdWcgloB2pUYwc8Vz1XPQpnUzBSb11iBGhVJQBqCzxXcFUjB2YFbVRJDWRTblRiWmEBO1UtUG4HalAwBW8BEVFmVjsJSgdIVEAHTVcNVwQKMVMx">查看</a></td>
+                </tr>
+                    <tr>
+                  <td>北街村</td>
+                  <td>一组</td>
+                  <td>王刚</td>
+                  <td>王文祥</td>
+                  <td>男</td>
+                  <td>苗</td>
+                  <td>1941-06-08</td>
+                  <td>初婚</td>
+                  <td>非农</td>
+                  <td><a href="/publish/index.php?LCMSPID=VGUEbgB2UWtWPwFvVmwLbFI8X28HNlUwUjMBKF1pUWdQdFIzCGVabQQ%2FB21SOFk0Dm1UaVJtAW0BcVM5W2wAJ1QiBGUAaFFMVj8BPFZgCzBSa18nBzlVOFIyAWtdTVFmUD1SEQhHWk4ETgddUgFZYg5s">查看</a></td>
+                </tr>
+                    <tr>
+                  <td>北街村</td>
+                  <td>一组</td>
+                  <td>王刚</td>
+                  <td>胡国英</td>
+                  <td>女</td>
+                  <td>汉</td>
+                  <td>1945-12-16</td>
+                  <td>初婚</td>
+                  <td>非农</td>
+                  <td><a href="/publish/index.php?LCMSPID=UWACaFQiVG4BaANtBD4Ibw9hAjIAMQJnA2IGL1puAzUHIwdmCGUFMgc8UDpTOQhlBWZfYlVqAW0BcQZsADdYf1EnAmNUPFRJAWgDPgQyCDMPNwJ6AD4CbwNjBmxaSgM0B2oHRAhHBREHTVAKUwAIMwVn">查看</a></td>
+                </tr>
+                    <tr>
+                  <td>北街村</td>
+                  <td>一组</td>
+                  <td>王刚</td>
+                  <td>王刚</td>
+                  <td>男</td>
+                  <td>汉</td>
+                  <td>1972-04-21</td>
+                  <td>初婚</td>
+                  <td>非农</td>
+                  <td><a href="/publish/index.php?LCMSPID=VGUEbgB2UWtWPwFvVmwLbFI8X28HNlUwUjMBKF1pUWdQdFIzCGVabQQ%2FB21SOFk0Dm1UaVJtAW0BcVM5W2wAJ1QiBGUAaFFMVj8BPFZgCzBSZV8nBzlVOFIyAWtdTVFmUD1SEQhHWk4ETgddUgFZYg5s">查看</a></td>
+                </tr>
+                    <tr>
+                  <td>北街村</td>
+                  <td>一组</td>
+                  <td>王刚</td>
+                  <td>班春兰</td>
+                  <td>女</td>
+                  <td>布依</td>
+                  <td>1980-11-02</td>
+                  <td>初婚</td>
+                  <td>农</td>
+                  <td><a href="/publish/index.php?LCMSPID=VGUJY1UjUGoEbQRqW2ENag9hUmJTYgZjC2pVfFtvUmRbf1AxUD1RZgA7B20HbQFsAmEEOVdoBWkKelM5Cj1Qd1QiCWhVPVBNBG0EOVttDTYPOVIqU20GawtrVT9bS1JlWzZQE1AfUUUASgddB1QBOgJg">查看</a></td>
+                </tr>
+                    <tr>
+                  <td>北街村</td>
+                  <td>一组</td>
+                  <td>王刚</td>
+                  <td>王武恒</td>
+                  <td>男</td>
+                  <td>布依</td>
+                  <td>2004-06-30</td>
+                  <td>未婚</td>
+                  <td>非农</td>
+                  <td><a href="/publish/index.php?LCMSPID=AzIEblMlBT9XPlwyBz0IbwFvX29SYwBlVTQPJlxoBTMGIlQ1Uz5abQE6A2kBaw1gDm1Sbwc4UDwKegFrDToFIgN1BGVTOwUYVz5cYQcxCDABPl8nUmwAbVU1D2VcTAUyBmtUF1McWk4BSwNZAVINNg5s">查看</a></td>
+                </tr>
+                    <tr>
+                  <td colspan="12">
+                	<table cellpadding="0" cellspacing="0" width="100%" align="center" class="tableno">
+                    	<tr>
+                          <td width="34%" style="text-align:left; padding-left:10px;"></td>
+                    	  <td width="66%" style="text-align:right; padding-right:10px;">
+							
+<a href="?nodeId=JMGLZT1m&pageSize=20&tpl=manage%2Fmanage_zqgl_jmgl&groupName%5Bv%5D=%E4%B8%80%E7%BB%84&currentPage=5" class="next">&lt; 上一页</a>
+	    <a href="?nodeId=JMGLZT1m&pageSize=20&tpl=manage%2Fmanage_zqgl_jmgl&groupName%5Bv%5D=%E4%B8%80%E7%BB%84&currentPage=1">1</a>
+    	    <a href="?nodeId=JMGLZT1m&pageSize=20&tpl=manage%2Fmanage_zqgl_jmgl&groupName%5Bv%5D=%E4%B8%80%E7%BB%84&currentPage=2">2</a>
+    	    <a href="?nodeId=JMGLZT1m&pageSize=20&tpl=manage%2Fmanage_zqgl_jmgl&groupName%5Bv%5D=%E4%B8%80%E7%BB%84&currentPage=3">3</a>
+    	    <a href="?nodeId=JMGLZT1m&pageSize=20&tpl=manage%2Fmanage_zqgl_jmgl&groupName%5Bv%5D=%E4%B8%80%E7%BB%84&currentPage=4">4</a>
+    	    <a href="?nodeId=JMGLZT1m&pageSize=20&tpl=manage%2Fmanage_zqgl_jmgl&groupName%5Bv%5D=%E4%B8%80%E7%BB%84&currentPage=5">5</a>
+    	    <strong>6</strong>
+    	    <a href="?nodeId=JMGLZT1m&pageSize=20&tpl=manage%2Fmanage_zqgl_jmgl&groupName%5Bv%5D=%E4%B8%80%E7%BB%84&currentPage=7">7</a>
+    	    <a href="?nodeId=JMGLZT1m&pageSize=20&tpl=manage%2Fmanage_zqgl_jmgl&groupName%5Bv%5D=%E4%B8%80%E7%BB%84&currentPage=8">8</a>
+    	    <a href="?nodeId=JMGLZT1m&pageSize=20&tpl=manage%2Fmanage_zqgl_jmgl&groupName%5Bv%5D=%E4%B8%80%E7%BB%84&currentPage=9">9</a>
+    	    <a href="?nodeId=JMGLZT1m&pageSize=20&tpl=manage%2Fmanage_zqgl_jmgl&groupName%5Bv%5D=%E4%B8%80%E7%BB%84&currentPage=10">10</a>
+    <a href="?nodeId=JMGLZT1m&pageSize=20&tpl=manage%2Fmanage_zqgl_jmgl&groupName%5Bv%5D=%E4%B8%80%E7%BB%84&currentPage=7" class="next">下一页 &gt;</a>
+
+                          </td>
+                    	</tr>
+                    </table>
+                </td></tr>
+            </table>
+          </div>
+      </div>
+      
+      
+      
+      <div class="copyrightBox">
+      	<div class="cboxc">
+Copyright© 青岩镇人民政府 版权所有 All Right Reserved. 黔ICP备11000001号<br />
+地址：贵州省贵阳市花溪南12公里处的213国道旁  电话：+86-0851-3200427  传真：+86-0851-3200427<br />
+青岩住区管理信息化管理平台  课题申报单位：贵州省城乡规划设计研究院  技术支持：贵州惠智
+        </div>
+      </div>
+    </div>
+    
+</div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+<?php$Gloabl['tplparams']=array();?>

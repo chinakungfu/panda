@@ -1,0 +1,311 @@
+<?php import('core.util.RunFunc'); ?>
+<?php if ($this->_tpl_vars["type"]=='site'){?>
+<input type="hidden" name="method" value="<?php echo $this->_tpl_vars["method"];?>">
+当前位置:<span id="weizi">站点管理</span>
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-1">默认操作</a></li>
+		<li><a href="#tabs-2">结点树</a></li>
+		<li><a href="#tabs-3">结点搜索</a></li>
+	</ul>
+	<div id="tabs-1">
+		<div id="listNodeByCon"></div>
+			<?php echo runFunc('listNodeByCon',array('1'));?>
+		</div>
+	<div id="tabs-2">
+		<div class="dtree">
+		<div id="nodeList"></div>
+    		<?php echo runFunc('listNode',array());?>
+		</div>
+	</div>
+	<div id="tabs-3">
+		<select name="field"　size="1">
+			<option value="nodeId">结点号</option>
+			<option value="nodeName">结点名称</option>
+		</select>
+		<input type="text" name="con" value="" size="5">
+		<input type="button" name="button" value="搜索" onclick="searchNode('node');">
+		<iframe height="300" width="175" style="display:none" id="searchResult" name="searchResult" src="" frameborder="0"></iframe>
+	</div>
+	<div class="skin0" id="menu" name="" onmouseover="highRightMenu(event)" onclick="jumpRightMenu(event);" onmouseout="lowRightMenu(event)">
+		<DIV class="menuitems" name="" id="addCNode" url='index.php<?php echo runFunc('encrypt_url',array("action=cms&method=addNode"));?>'>新建子结点</DIV>
+		<DIV class="menuitems" name="" id="nodeBase" url='index.php<?php echo runFunc('encrypt_url',array("action=cms&method=nodeBase"));?>'>新建子结点基于...</DIV>
+		<DIV class="menuitems" name="" id="sortNode" url='index.php<?php echo runFunc('encrypt_url',array("action=cms&method=sortNode"));?>'>结点排序权重</DIV>
+		<DIV class="menuitems" name="" id="moveNode" url='index.php<?php echo runFunc('encrypt_url',array("action=cms&method=moveNode"));?>'>结点移动</DIV>
+		<DIV class="menuitems" name="" id="setDefaultNode" url='index.php<?php echo runFunc('encrypt_url',array("action=cms&method=setDefaultNode"));?>'>设为默认操作</DIV>
+		<DIV class="menuitems" name="" id="delNode" url='index.php<?php echo runFunc('encrypt_url',array("action=cms&method=delNode"));?>'>删除结点</DIV>
+		<DIV class="menuitems" name="" id="contentPublish" url='index.php<?php echo runFunc('encrypt_url',array("action=cms&method=commonList&frameListAction=cms&frameListMethod=commonListFrame"));?>'>内容发布管理</DIV>
+	</div>
+	<div class="skin0" id="menuBase" name="" onmouseover="highRightMenu(event)" onclick="jumpRightMenu(event);" onmouseout="lowRightMenu(event)">
+		<DIV class="menuitems" name="" id="addPNode" url='index.php<?php echo runFunc('encrypt_url',array("action=cms&method=addNode"));?>'>新建根结点</DIV>
+	</div>
+</div>
+
+<SCRIPT language="JavaScript1.2">
+if(getOs()=='Firefox')
+{
+	addPNode = document.getElementById("addPNode");
+
+	addCNode = document.getElementById("addCNode");
+	nodeBase = document.getElementById("nodeBase");
+	sortNode = document.getElementById("sortNode");
+	moveNode = document.getElementById("moveNode");
+	setDefaultNode = document.getElementById("setDefaultNode");
+	delNode = document.getElementById("delNode");
+	contentPublish = document.getElementById("contentPublish");
+
+}
+document.body.onclick = hideRightMenu;
+</script>
+<?php } elseif ($this->_tpl_vars["type"]=='publish'){ ?>
+ <input type="hidden" name="method" value="<?php echo $this->_tpl_vars["method"];?>">
+
+ <!--
+当前位置:<span id="weizi">发布管理</span>
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-1">默认操作</a></li>
+		<li><a href="#tabs-2">结点树</a></li>
+		<li><a href="#tabs-3">结点搜索</a></li>
+	</ul>
+	<div id="tabs-1">
+		<div id="publishDefaultNode"></div>
+			<?php echo runFunc('listPublishNodeByCon',array('1'));?>
+		</div>
+	<div id="tabs-2">
+		<div class="dtree">
+		<div id="publishListNode"></div>
+    		<?php echo runFunc('listPublishNode',array());?>
+		</div>
+	</div>
+	<div id="tabs-3">
+		<select name="field"　size="1">
+			<option value="nodeId">结点号</option>
+			<option value="nodeName">结点名称</option>
+		</select>
+		<input type="text" name="con" value="" size="5">
+		<input type="button" name="button" value="搜索" onclick="searchNode('publishNode');">
+		<iframe height="300" width="175" style="display:none" id="searchResult" name="searchResult" src="" frameborder="0"></iframe>
+	</div>
+	<div class="skin0" id="menu" name="" onmouseover="highRightMenu(event)" onclick="jumpRightMenu(event);" onmouseout="lowRightMenu(event)">
+		<DIV class="menuitems" name="" id="refeshIndex" url='index.php<?php echo runFunc('encrypt_url',array("action=cms&method=refeshIndex"));?>'>刷新首页</DIV>
+		<DIV class="menuitems" name="" id="newDoc" url='index.php<?php echo runFunc('encrypt_url',array("action=cms&method=addData&frameListAction=cms&frameListMethod=commonListFrame"));?>'>新建文档</DIV>
+		<DIV class="menuitems" name="" id="nodeUpdate" url='index.php<?php echo runFunc('encrypt_url',array("action=cms&method=nodeUpdate&allSit=0"));?>'>结点更新</DIV>
+		<DIV class="menuitems" name="" id="nodePublsh" url='index.php<?php echo runFunc('encrypt_url',array("action=cms&method=nodePublish&allSit=0"));?>'>结点发布</DIV>
+
+		<DIV class="menuitems" name="" id="viewNodeIndex" url='index.php<?php echo runFunc('encrypt_url',array("action=cms&method=viewIndex"));?>'>查看首页</DIV>
+		<DIV class="menuitems" name="" id="parmaSet" url='index.php<?php echo runFunc('encrypt_url',array("action=cms&method=editNode"));?>'>参数设置</DIV>
+	</div>
+	<div class="skin0" id="menuBase" name="" onmouseover="highRightMenu(event)" onclick="jumpRightMenu(event);" onmouseout="lowRightMenu(event)">
+		<DIV class="menuitems" name="" id="allSitUpdate" url='index.php<?php echo runFunc('encrypt_url',array("action=cms&method=nodeUpdate&allSit=1"));?>'>整站更新</DIV>
+		<DIV class="menuitems" name="" id="allSitePublish" url='index.php<?php echo runFunc('encrypt_url',array("action=cms&method=nodePublish&allSit=1"));?>'>整站发布</DIV>
+	</div>
+</div>
+<SCRIPT language="JavaScript1.2">
+
+if(getOs()=='Firefox')
+{
+	allSitUpdate = document.getElementById("allSitUpdate");
+	allSitePublish = document.getElementById("allSitePublish");
+
+	refeshIndex=document.getElementById("refeshIndex");
+	newDoc=document.getElementById("newDoc");
+	nodeUpdate=document.getElementById("nodeUpdate");
+	nodePublsh=document.getElementById("nodePublsh");
+	viewIndex=document.getElementById("viewIndex");
+	parmaSet=document.getElementById("parmaSet");
+}
+</script>
+-->
+<?php } elseif ($this->_tpl_vars["type"]=='system'){ ?>
+ 当前位置:<span id="weizi">系统设置</span>
+ <div id="tabs">
+	<ul>
+		<li><a href="#tabs-1">系统设置<?php echo runFunc('listNode',array());?></a></li>
+
+	</ul>
+	<div id="nodeList"></div>
+	<div id="tabs-1">
+		<div id="publishDefaultNode"></div>
+		<a href="index.php<?php echo runFunc('encrypt_url',array("action=cms&method=nodePublish"));?>" target="mainFrame">节点发布</a><br><br>
+		<a href="index.php<?php echo runFunc('encrypt_url',array("action=cms&method=nodeBase"));?>" target="mainFrame">新建子结点基于...</a><br><br>
+		<a href="index.php<?php echo runFunc('encrypt_url',array("action=cms&method=sortNode"));?>" target="mainFrame">结点排序权重</a><br><br>
+		<a href="index.php<?php echo runFunc('encrypt_url',array("action=cms&method=moveNode"));?>" target="mainFrame">结点移动</a><br><br>
+		<a href="index.php<?php echo runFunc('encrypt_url',array("action=cms&method=setDefaultNode"));?>" target="mainFrame">设为默认操作</a><br><br>
+		<a href="index.php<?php echo runFunc('encrypt_url',array("action=cms&method=delNode"));?>" target="mainFrame">删除结点</a><br><br>
+		<a href="index.php<?php echo runFunc('encrypt_url',array("action=cms&method=commonList&frameListAction=cms&frameListMethod=commonListFrame"));?>" target="mainFrame">内容发布管理</a><br><br>
+		<a href="index.php<?php echo runFunc('encrypt_url',array("action=cms&method=addNode"));?>" target="mainFrame">新建根结点</a><br><br>
+
+		<img src="skin/images/ip.gif">
+			<a href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=listFieldConfig'));?>" target="mainFrame">字段配置管理</a><br><br>
+		<img src="skin/images/ip.gif">
+			<a href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=listContentPlan'));?>" target="mainFrame">内容编辑方案</a><br><br>
+		<img src="skin/images/ip.gif">
+			<a href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=listAction'));?>" target="mainFrame">动作配置管理</a><br><br>
+		<img src="skin/images/ip.gif">
+			<a href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=workFlowAction'));?>" target="mainFrame">工作流动作</a><br><br>
+		<img src="skin/images/ip.gif">
+			<a href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=workFlowStep'));?>" target="mainFrame">工作流步骤</a><br><br>
+		<img src="skin/images/ip.gif">
+			<a href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=workFlow'));?>" target="mainFrame">工作流配置</a><br><br>
+		<img src="skin/images/ip.gif">
+			<a href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=publishPsnSet'));?>" target="mainFrame">发布点(PSN)管理</a><br><br>
+		<img src="skin/images/ip.gif">
+			<a href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=modelVarSet'));?>" target="mainFrame">模板变量管理</a><br><br>
+		<img src="skin/images/ip.gif">
+			<a href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=seoSet'));?>" target="mainFrame">SEO设置</a><br><br>
+		<img src="skin/images/ip.gif">
+			<a href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=backup'));?>" target="mainFrame">数据备份/优化</a><br><br>
+		<img src="skin/images/ip.gif">
+			<a href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=restore'));?>" target="mainFrame">数据恢复</a><br><br>
+		<img src="skin/images/ip.gif">
+			<a href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=importNode'));?>" target="mainFrame">结点导入</a><br><br>
+		<img src="skin/images/ip.gif">
+			<a href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=exportNode'));?>" target="mainFrame">结点导出</a><br><br>
+		<img src="skin/images/ip.gif">
+			<a href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=cleanCache'));?>" target="mainFrame">清除缓存</a><br><br>
+	</div>
+ </div>
+ <?php } elseif ($this->_tpl_vars["IN"]["type"]=='orders' || $this->_tpl_vars["IN"]["type"]=='orders_wow' || $this->_tpl_vars["IN"]["type"]=='orders_ivision'){?>
+
+ <ul class="left_menu">
+ 	<li class="title">订单管理</li>
+	<li><a <?php if($this->_tpl_vars["method"] == "orders"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=orders&type=orders'));?>" >全部订单列表</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "orders_wow"){echo 'class="active"';}?>href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=orders_wow&type=orders_wow'));?>" >wow订单列表</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "orders_ivision"){echo 'class="active"';}?>href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=orders_ivision&type=orders_ivision'));?>" >ivision订单列表</a></li>
+	<li class="title">团购商品</li>
+	<li><a <?php if($this->_tpl_vars["method"] == "groupBuyCart"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=groupBuyCart&type=orders'));?>" >订单列表</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "groupFailed"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=groupFailed&type=orders'));?>" >失败团购处理</a></li>
+ </ul>
+ <?php } elseif ($this->_tpl_vars["type"]=='products'){?>
+
+ <ul class="left_menu">
+ 	<li class="title">商品管理</li>
+	<li><a <?php if($this->_tpl_vars["method"] == "product_list"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=product_list&type=products'));?>">商品列表</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "product_add"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=product_add&type=products'));?>">添加商品</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "product_category_list"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=product_category_list&type=products'));?>">分类列表</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "product_category_add"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=product_category_add&type=products'));?>">添加分类</a></li>
+	<li class="title">产品标签管理</li>
+	<li><a <?php if($this->_tpl_vars["method"] == "tag_categories"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=tag_categories&type=products'));?>" >分类列表</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "tag_category_add"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=tag_category_add&type=products'));?>">添加分类</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "tag_list"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=tag_list&type=products'));?>" >标签列表</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "tag_add"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=tag_add&type=products'));?>" >添加标签</a></li>
+	<li class="title">品牌管理</li>
+	<li><a <?php if($this->_tpl_vars["method"] == "brand_categories"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=brand_categories&type=products'));?>">分类列表</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "brand_category_add"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=brand_category_add&type=products'));?>">添加分类</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "brand_tag_list"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=brand_tag_list&type=products'));?>">标签列表</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "brand_tag_add"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=brand_tag_add&type=products'));?>">添加标签</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "brands"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=brands&type=products'));?>">品牌列表</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "brand_add"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=brand_add&type=products'));?>">添加品牌</a></li>
+	<li class="title">属性管理</li>
+	<li><a <?php if($this->_tpl_vars["method"] == "prop_list"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=prop_list&type=products'));?>">属性列表</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "prop_add"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=prop_add&type=products'));?>">添加属性</a></li>
+	<li class="title">热门品牌</li>
+	<li><a <?php if($this->_tpl_vars["method"] == "hot_brand_category_list"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=hot_brand_category_list&type=products'));?>">品牌分类</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "hot_brand_category_add"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=hot_brand_category_add&type=products'));?>">添加分类</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "hot_brand_list"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=hot_brand_list&type=products'));?>">品牌列表</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "hot_brand_add"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=hot_brand_add&type=products'));?>">添加品牌</a></li>
+ </ul>
+<?php } elseif ($this->_tpl_vars["type"]=='share'){?>
+
+  <ul class="left_menu">
+	<li class="title">Style List 管理</li>
+	<li><a <?php if($this->_tpl_vars["method"] == "style_list"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=style_list&type=share'));?>">Style List 列表</a></li>
+	<li class="title">商店管理</li>
+	<li><a <?php if($this->_tpl_vars["method"] == "circle_list"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=circle_list&type=share'));?>">商店列表</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "circle_post_list"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=circle_post_list&type=share'));?>">商店post</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "circle_category"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=circle_category&type=share'));?>">商店分类</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "circle_category_add"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=circle_category_add&type=share'));?>">添加分类</a></li>
+	<li class="title">官方活动</li>
+	<li><a <?php if($this->_tpl_vars["method"] == "eventList"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=eventList&type=share'));?>">活动列表</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "eventAdd"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=eventAdd&type=share'));?>">发布活动</a></li>
+	<li class="title">会员活动</li>
+	<li><a <?php if($this->_tpl_vars["method"] == "member_event_list"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=member_event_list&type=share'));?>">活动列表</a></li>
+	<li class="title">投票管理</li>
+	<li><a <?php if($this->_tpl_vars["method"] == "poll_list"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=poll_list&type=share'));?>">投票列表</a></li>
+	<li class="title">会员团购</li>
+	<li><a <?php if($this->_tpl_vars["method"] == "memeberGroupBuy"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=memeberGroupBuy&type=share'));?>">团购列表</a></li>
+	<li class="title">官方团购</li>
+	<li><a <?php if($this->_tpl_vars["method"] == "adminGroupBuy"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=adminGroupBuy&type=share'));?>">团购列表</a></li>
+	<!-- <li><a href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=groupBuyAdd&type=share'));?>">发布团购</a></li> -->
+	<li class="title">评论管理</li>
+	<li><a <?php if($this->_tpl_vars["method"] == "comment_list"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=comment_list&type=share'));?>">所有评论</a></li>
+	<li class="title">垃圾信息管理</li>
+	<li><a <?php if($this->_tpl_vars["method"] == "spam_list"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=spam_list&type=share'));?>">被举报信息</a></li>
+ </ul>
+
+<?php } elseif ($this->_tpl_vars["type"]=='users'){?>
+
+  <ul class="left_menu">
+ 	<li class="title">会员管理</li>
+ 	<li><a <?php if($this->_tpl_vars["method"] == "users"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=users&type=users'));?>">会员列表</a></li>
+	<li class="title">消息管理</li>
+	<li><a <?php if($this->_tpl_vars["method"] == "adminHelpMessages"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=adminHelpMessages&type=users'));?>">咨询回复</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "admin_help_ignored_messages"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=admin_help_ignored_messages&type=users'));?>">已忽略回复</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "admin_help_mail_send"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=admin_help_mail_send&type=users'));?>">直接回复</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "admin_help_mail_list"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=admin_help_mail_list&type=users'));?>">直接回复记录</a></li>
+
+
+	<li class="title">优惠券管理</li>
+	<li><a <?php if($this->_tpl_vars["method"] == "coupon_add"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=coupon_add&type=users'));?>">生成优惠券</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "coupons"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=coupons&type=users'));?>">优惠券列表</a></li>
+	<li class="title">充值管理</li>
+	<li><a <?php if($this->_tpl_vars["method"] == "recharge_order"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=recharge_order&type=users'));?>">充值记录</a></li>
+</ul>
+
+ <?php } elseif ($this->_tpl_vars["type"]=='media'){?>
+
+  <ul class="left_menu">
+ 	<li class="title">广告管理</li>
+ 	<li><a <?php if($this->_tpl_vars["method"] == "advertising_list"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=advertising_list&type=media'));?>">广告列表</a></li>
+ 	<li><a <?php if($this->_tpl_vars["method"] == "advertising_add"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=advertising_add&type=media'));?>">新建广告</a></li>
+	<li class="title">活动页管理</li>
+	<li><a <?php if($this->_tpl_vars["method"] == "custom_page_list"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=custom_page_list&type=media'));?>">活动页列表</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "custom_page_add"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=custom_page_add&type=media'));?>">新建活动页</a></li>
+ 	<li class="title">newsletter管理</li>
+ 	<li><a <?php if($this->_tpl_vars["method"] == "newsletter_add"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=newsletter_add&type=media'));?>">newsletter生成</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "newsletter_list"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=newsletter_list&type=media'));?>">newsletter列表</a></li>
+ </ul>
+  <?php } elseif ($this->_tpl_vars["type"]=='totals'){?>
+
+  <ul class="left_menu">
+ 	<li class="title">统计报表</li>
+ 	<li><a <?php if($this->_tpl_vars["method"] == "order_total"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=order_total&type=totals'));?>">订单收入</a></li>
+ 	<li><a <?php if($this->_tpl_vars["method"] == "recharge_total"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=recharge_total&type=totals'));?>">充值收入</a></li>
+ 	<li><a <?php if($this->_tpl_vars["method"] == "sells_total"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=sells_total&type=totals'));?>">销量统计</a></li>
+ 	<li><a <?php if($this->_tpl_vars["method"] == "user_total"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=user_total&type=totals'));?>">注册统计</a></li>
+ 	<li><a <?php if($this->_tpl_vars["method"] == "social_total"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=social_total&type=totals'));?>">社交统计</a></li>
+ </ul>
+<?php } elseif ($this->_tpl_vars["type"]=='main' or $this->_tpl_vars["type"]==''){?>
+
+  <ul class="left_menu">
+ 	<li class="title">系统首页</li>
+	<li><a <?php if($this->_tpl_vars["method"] == "main"){echo 'class="active"';}?>  href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=main'));?>">全局信息</a></li>
+ <?php if( $user_info[0]["groupName"]!="Site Manager"):?>
+  	<li class="title">全局设置</li>
+  	<li><a <?php if($this->_tpl_vars["method"] == "admin_user_settings"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=admin_user_settings&type=main'));?>">超级管理员</a></li>
+  	<li><a <?php if($this->_tpl_vars["method"] == "site_settings"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=site_settings&type=main'));?>">站点设置</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "main_settings"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=main_settings&type=main'));?>">服务设置</a></li>
+ 	<li class="title">管理员管理</li>
+ 	<li><a <?php if($this->_tpl_vars["method"] == "managers"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=managers&type=main'));?>">管理员列表</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "manager_add"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=manager_add&type=main'));?>">新增管理员</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "manager_permission_list"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=manager_permission_list&type=main'));?>">管理员权限</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "add_manager_permission"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=add_manager_permission&type=main'));?>">新增权限</a></li>
+	<li><a <?php if($this->_tpl_vars["method"] == "logs_view"){echo 'class="active"';}?> href="index.php<?php echo runFunc('encrypt_url',array('action=cms&method=logs_view&type=main'));?>">操作日志</a></li>
+<?php endif;?>
+	</ul>
+
+<?php }?>
+  <script>
+//document.body.onclick = hideRightMenu;
+</script>
+<?php
+if (!defined('CAL_GREGORIAN')) {
+	define('CAL_GREGORIAN', 1);
+}
+if (!function_exists('cal_days_in_month')) {
+	function cal_days_in_month($calendar, $month, $year) {
+		return date('t', mktime(0, 0, 0, $month, 1, $year));
+	}
+}
+?>

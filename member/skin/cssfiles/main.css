@@ -1,0 +1,234 @@
+﻿@charset "utf-8";
+/* FPIE CSS Document */
+BODY {
+	PADDING-RIGHT: 0px;
+	PADDING-LEFT: 0px;
+	FONT-SIZE: 12px;
+	PADDING-BOTTOM: 0px;
+	MARGIN: 0px;
+	PADDING-TOP: 0px;
+	FONT-FAMILY: "宋体";
+	TEXT-ALIGN: left;
+	background-color: #ECECEC;
+	color: #000000;
+}
+DIV {
+	OVERFLOW: hidden;
+	font-family: "宋体";
+	font-size: 12px;
+	color: #000000;
+}
+.scanbutton {
+	background-image:url(../images/btnBrowse.jpg);
+	width: 66px;
+	height:23px;
+	font-size: 13px;
+	padding: 0px;
+	color: #000000;
+	font-family: "宋体";
+	border: 1px;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.loginbutton {
+	background-image:url(../images/btnLogin.jpg);
+	width: 66px;
+	height:23px;
+	font-size: 13px;
+	padding: 0px;
+	color: #000000;
+	font-family: "宋体";
+	border: 1px;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+A:link {
+	COLOR: #0033FF; TEXT-DECORATION: none
+}
+A:visited {
+	TEXT-DECORATION: none;
+	color: #0033ff;
+
+}
+A:hover {
+	COLOR: #f00; TEXT-DECORATION: underline
+}
+A:active {
+	COLOR: #9900FF; TEXT-DECORATION: none
+}
+UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+LI {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 2px; MARGIN: 0px 0px 0px 15px; PADDING-TOP: 1px
+}
+DL {
+	CLEAR: both; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+DD {
+	CLEAR: both; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+DT {
+	BACKGROUND-POSITION: left top; BACKGROUND-REPEAT: no-repeat
+}
+P {
+	MARGIN: 0px
+}
+U {
+	TEXT-DECORATION: none
+}
+.TextBox {
+	BORDER-RIGHT: #333 1px solid;
+	BORDER-TOP: #333 1px solid;
+	FONT-SIZE: 12px;
+	BORDER-LEFT: #333 1px solid;
+	BORDER-BOTTOM: #333 1px solid;
+	FONT-FAMILY: "宋体";
+	BACKGROUND-COLOR: #ffffff
+}
+
+.DivDivider {
+	CLEAR: both
+}
+
+#OutBox {
+	CLEAR: both; MARGIN: auto; WIDTH: 760px; TEXT-ALIGN: left
+}
+.button {
+	background-image: url(../images/button2.jpg);
+	width: 70px;
+	height:20px;
+	font-size: 13px;
+	padding: 0px;
+	color: #000000;
+	font-family: "宋体";
+	border: 1px ridge #808080;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.indexbody{                         /*主页的body*/
+	FONT-SIZE: 12pt;
+	background-color: #FFFFFF;
+}
+.indexspan {                        /* 主页的span标签*/
+ color: #FFFFFF;
+ font-size:12px;
+
+}
+.indexdiv {                         /* 主页的div标签*/
+font-size:12px;
+color: #000000;}
+
+select {                            /*表单的input方式为select(下拉列表\uFFFD*/
+	border: 1px solid #666666;
+	width: 200px;
+}
+.WhiteFont {
+	color: #FFFFFF;
+	font-size:13px;
+	font-family: "宋体";
+}
+.remark {                           /* 报表说明的地方，\uFFFD 记录数"等标\uFFFD*/
+	font-family: "宋体";
+	font-size: 13px;
+	font-weight: bold;
+}
+.ReportTitle {                      /*  表标题的风\uFFFD*/
+	font-family: "宋体";
+	font-size: 20px;
+	color: #000000;
+	font-weight: bold;
+	cursor: text;
+}
+.ReportTH {
+	background-color: #56A0D4;
+	text-align: center;
+	}
+.ReportTD{
+	background-color: #FFFFFF;
+	text-align: center;
+	}
+.fileborder {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #000000;
+	width: 120px;
+	height: 18px;
+	border: 1px solid #56a0d4;
+	text-align: left;
+	vertical-align: middle;
+}
+.BlueTD {
+	background-attachment: fixed;
+	background-image:  url(../images/bar6.gif);
+	background-repeat: repeat-x;
+	background-position: center center;
+	background-color:#EEEEE0;
+}
+.WhiteTD {
+	background-color: #FFFFFF;
+}
+.tableOut {
+	background-color: #ECECEC;
+	margin: 0px;
+	padding: 1px;
+}
+.tableIn {
+	background-color: #808080;
+	margin: 0px;
+	padding: 1px;
+	display: inline;
+}
+.table {
+	background-color: #808080;
+	border:0;
+	align:center;
+	font-size: 12px;
+	font-family: "宋体";
+	text-align: center;
+}
+.hg {     /*文本之间的行距*/
+	font-family: "宋体";
+	line-height: 20px;
+	letter-spacing: 1px;
+	text-indent: 24px;
+	padding: 3px;
+}
+.dytd {                  /*表格第一列的样式*/
+    background-image:    url(../images/bar6.gif);
+	font-family: "宋体";
+	font-weight: bold;
+	text-align: right;
+}
+.log{
+	font-size:12px;
+	background-color:#f9fcff;
+	border: 1px solid #56a0d4;
+}
+.header {        /*第一行标题的样式*/
+	background-image: url(../images/bar6.gif);
+	color: #FFFFFF;
+	font-weight: normal;
+	background-repeat: repeat-x;
+	background-position: center center;
+	font-size: 12px;
+	font-family: "宋体";
+	}
+.img {              /*图片链接显示的鼠标样式*/
+	cursor: hand;
+}
+.font {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #000000;
+}
+.mouseOver {
+	background-color: #56a0d4;
+	cursor: hand;
+}
+.mouseOut {
+	background-color: #ffffff;
+}

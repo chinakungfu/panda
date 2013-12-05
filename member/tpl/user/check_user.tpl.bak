@@ -1,0 +1,10 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<pp:if expr="$method=='checkuser'">
+<pp:var name="result" value="<pp:memfunc funcname="checkLogin({$staffName},{$password})"/>"/>
+<pp:if expr="$result">
+<pp:session funcname="writeSession({$staffName})"/>
+<script>alert("登录成功！");location.href="main.html"</script>
+<pp:else/>
+<script>alert("用户名和密码不正确，请重新登录！");location.href="login.php"</script>
+</pp:if>
+</pp:if>

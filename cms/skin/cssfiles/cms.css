@@ -1,0 +1,68 @@
+<!-- 表格样式 --> 
+TD { 
+FONT-FAMILY: "Verdana", "宋体"; FONT-SIZE: 12px; LINE-HEIGHT: 130%; letter-spacing:1px 
+} 
+
+<!-- 超级连接样式 --> 
+A:link { 
+COLOR: #990000; FONT-FAMILY: "Verdana", "宋体"; FONT-SIZE: 12px; TEXT-DECORATION: none; letter-spacing:1px 
+} 
+A:visited { 
+COLOR: #990000; FONT-FAMILY: "Verdana", "宋体"; FONT-SIZE: 12px; TEXT-DECORATION: none; letter-spacing:1px 
+} 
+A:active { 
+COLOR: #990000; FONT-FAMILY: "Verdana", "宋体"; FONT-SIZE: 12px; TEXT-DECORATION: none; letter-spacing:1px 
+} 
+A:hover { 
+COLOR: #ff0000; FONT-FAMILY: "Verdana", "宋体"; FONT-SIZE: 12px; TEXT-DECORATION: underline; letter-spacing:1px 
+} 
+
+<!-- 其他样式 --> 
+.Menu { 
+COLOR:#000000; FONT-FAMILY: "Verdana", "宋体"; FONT-SIZE: 12px; CURSOR: pointer 
+}
+
+font-size:12px;
+color:#000000;
+}
+.sec1 { 
+background:url(images/main_nav.gif) repeat-x;
+cursor: pointer;
+color: #000000;
+border-left: 1px solid #FFFFFF;
+border-top: 1px solid #FFFFFF;
+border-right: 1px solid gray;
+border-bottom: 1px solid #FFFFFF;
+FONT-SIZE: 12px;
+}
+.sec2 { 
+background-color: #ffffff;
+cursor: pointer;
+color: #000000;
+border-left: 1px solid #FFFFFF; 
+border-top: 1px solid #FFFFFF; 
+border-right: 1px solid gray;
+FONT-SIZE: 12px;
+font-weight: bold;
+}
+.main_tab {
+background-color: #ffffff;
+color: #000000;
+border-left:1px solid #FFFFFF;
+border-right: 1px solid gray;
+border-bottom: 1px solid gray; 
+}
+
+popmenu {
+position:absolute; 
+left:30px; top:100px; 
+width:80px; height:30px; 
+z-index:2; 
+background:url(../images/menu_bg_1.gif) repeat-x;
+layer-background-color: #999966; 
+border: 1px none #000000; 
+visibility: hidden;
+}
+
+.checkbox { width:10px; height: 10px; }
+.img { width:14px; height: 14px; }

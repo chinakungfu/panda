@@ -1,0 +1,40 @@
+body{	
+	SCROLLBAR-FACE-COLOR: #FFFFFF;
+	SCROLLBAR-HIGHLIGHT-COLOR: #b5c7ef;
+	SCROLLBAR-SHADOW-COLOR: #000000;
+	SCROLLBAR-3DLIGHT-COLOR: #FFFFFF;
+	SCROLLBAR-ARROW-COLOR: #000000;
+	SCROLLBAR-TRACK-COLOR: #FFFFFF;
+	SCROLLBAR-DARKSHADOW-COLOR: #FFFFFF;
+	SCROLLBAR-BASE-COLOR: #FFFFFF;
+}
+table {/*数据区的表格样式*/	
+	border:0;	
+	border-color:#9FD6FF;
+	font-size: 9pt;
+	font-family: "宋体";
+	text-align: center;
+	width: 100%;	
+	background-color: White;
+	color:#014F8A;
+	border-width:1px;border-style:solid;
+	border-collapse:collapse;
+}
+
+table.td
+{ /*数据区的表格头*/
+	background-image:url(../images/title_04.gif);
+	background-color: #F2F9FF;
+	border-color:#9FD6FF;
+	color:#014F8A;
+	height: 23px;	
+	text-align:center;	
+}
+TD.tdListItem
+{ /*数据列表区的TD样式*/
+	background-color: #F2F9FF;
+	color:#014F8A;	
+	height: 20px;
+	border-color:#9FD6FF;
+	text-align:center;
+}

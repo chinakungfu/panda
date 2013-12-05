@@ -1,0 +1,3 @@
+<?php import('core.util.RunFunc'); ?><?php runFunc('editPublish',array($this->_tpl_vars["contentId"],$this->_tpl_vars["nodeId"],$this->_tpl_vars["appTableName"],$this->_tpl_vars["IN"]["para"]))?>
+<?php $this->_tpl_vars["tempUrl"]='action=' .$this->_tpl_vars["frameListAction"] .'&method=' .$this->_tpl_vars["frameListMethod"] .'&nodeId='.$this->_tpl_vars["nodeId"]; ?>
+<script>location.href='index.php<?php echo runFunc('encrypt_url',array($this->_tpl_vars["tempUrl"]));?>'</script>

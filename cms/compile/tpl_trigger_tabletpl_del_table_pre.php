@@ -1,0 +1,1 @@
+<?php import('core.util.RunFunc'); ?><?php $this->_tpl_vars["result"]=runFunc('delAppTable',array($this->_tpl_vars["nodeId"],$this->_tpl_vars["contentModel"],$this->_tpl_vars["appTableKeyName"],$this->_tpl_vars["appTableKeyValue"])); ?>
